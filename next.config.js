@@ -9,7 +9,6 @@ const withBundleAnalyzer = bundleAnalyzer({
 })
 
 export default withBundleAnalyzer({
-  output: 'export',
 
   staticPageGenerationTimeout: 300,
   images: {
