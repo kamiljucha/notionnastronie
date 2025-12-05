@@ -14,11 +14,30 @@ export default class MyDocument extends Document {
               sizes='32x32'
               href='favicon.png'
             />
-
             <link rel='manifest' href='/manifest.json' />
+
+            {/* --- EASY TOOLS PAYWALL START --- */}
+            {/* Główny skrypt ładujący */}
+            <script src="https://cart.easy.tools/login.js?type=block&id=82493ac1-fa44-4b4e-9b5d-a258781c9f4f"></script>
+
+            {/* Logika przekierowania (zabezpieczona dla Next.js) */}
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  !window._EC_HASH_acee6b73ef20850ecdd58622a5c6b611 && (location.href = "https://cart.easy.tools/r/82493ac1-fa44-4b4e-9b5d-a258781c9f4f");
+                `,
+              }}
+            />
+            {/* --- EASY TOOLS PAYWALL END --- */}
+
           </Head>
 
           <body>
+            {/* Obsługa braku JS dla Paywalla */}
+            <noscript>
+                <meta http-equiv="refresh" content="0;url=https://cart.easy.tools/r/82493ac1-fa44-4b4e-9b5d-a258781c9f4f" />
+            </noscript>
+
             <script
               dangerouslySetInnerHTML={{
                 __html: `
