@@ -26,6 +26,8 @@ function ToggleThemeButton() {
     <div
       className={cs('breadcrumb', 'button', !hasMounted && styles.hidden)}
       onClick={onToggleTheme}
+      style={{ cursor: 'pointer', fontSize: '1.5rem', padding: '10px' }} 
+      title="Zmień tryb jasny/ciemny"
     >
       {hasMounted && isDarkMode ? <IoMoonSharp /> : <IoSunnyOutline />}
     </div>
@@ -46,6 +48,7 @@ export function NotionPageHeader({
   return (
     <header className='notion-header'>
       <div className='notion-nav-header'>
+        {/* Breadcrumbs wyświetlają tytuł - w CSS go ukryliśmy, ale struktura musi być */}
         <Breadcrumbs block={block} rootOnly={true} />
 
         <div className='notion-nav-header-rhs breadcrumbs'>
@@ -79,6 +82,7 @@ export function NotionPageHeader({
             })
             .filter(Boolean)}
 
+          {/* TUTAJ JEST PRZYCISK ZMIANY TRYBU */}
           <ToggleThemeButton />
         </div>
       </div>
