@@ -9,9 +9,13 @@ const withBundleAnalyzer = bundleAnalyzer({
 })
 
 export default withBundleAnalyzer({
+  // TO JEST KLUCZOWE DLA CLOUDFLARE:
+  output: 'export', 
 
   staticPageGenerationTimeout: 300,
   images: {
+    // TO JEST KLUCZOWE PRZY EXPORCIE:
+    unoptimized: true,
     remotePatterns: [
       { protocol: 'https', hostname: 'www.notion.so' },
       { protocol: 'https', hostname: 'notion.so' },
