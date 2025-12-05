@@ -10,7 +10,7 @@ export default siteConfig({
 
   // basic site info (required)
   name: 'Baza wiedzy Gildii trenerów',
-  domain: 'https://baza.gildiatrenerow.pl/',
+  domain: 'https://kurs.kamiljucha.pl/',
   author: 'Kamil Jucha',
 
   // open graph metadata (optional)
