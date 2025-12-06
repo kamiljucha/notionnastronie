@@ -17,10 +17,13 @@ export default class MyDocument extends Document {
             <link rel='manifest' href='/manifest.json' />
 
             {}
+            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
             {}
             <script src="https://cart.easy.tools/login.js?type=block&id=82493ac1-fa44-4b4e-9b5d-a258781c9f4f"></script>
 
-            {}
             <script
               dangerouslySetInnerHTML={{
                 __html: `
@@ -28,8 +31,6 @@ export default class MyDocument extends Document {
                 `,
               }}
             />
-            {}
-
           </Head>
 
           <body>
@@ -38,48 +39,23 @@ export default class MyDocument extends Document {
                 <meta http-equiv="refresh" content="0;url=https://cart.easy.tools/r/82493ac1-fa44-4b4e-9b5d-a258781c9f4f" />
             </noscript>
 
+            {}
             <script
               dangerouslySetInnerHTML={{
                 __html: `
-/** Inlined version of noflash.js from use-dark-mode */
-;(function () {
-  var storageKey = 'darkMode'
-  var classNameDark = 'dark-mode'
-  var classNameLight = 'light-mode'
-  function setClassOnDocumentBody(darkMode) {
-    document.body.classList.add(darkMode ? classNameDark : classNameLight)
-    document.body.classList.remove(darkMode ? classNameLight : classNameDark)
-  }
-  var preferDarkQuery = '(prefers-color-scheme: dark)'
-  var mql = window.matchMedia(preferDarkQuery)
-  var supportsColorSchemeQuery = mql.media === preferDarkQuery
-  var localStorageTheme = null
+/** Force Light Mode */
+(function () {
   try {
-    localStorageTheme = localStorage.getItem(storageKey)
+    var classNameDark = 'dark-mode'
+    var classNameLight = 'light-mode'
+    document.body.classList.remove(classNameDark)
+    document.body.classList.add(classNameLight)
   } catch (err) {}
-  var localStorageExists = localStorageTheme !== null
-  if (localStorageExists) {
-    localStorageTheme = JSON.parse(localStorageTheme)
-  }
-  // Determine the source of truth
-  if (localStorageExists) {
-    // source of truth from localStorage
-    setClassOnDocumentBody(localStorageTheme)
-  } else if (supportsColorSchemeQuery) {
-    // source of truth from system
-    setClassOnDocumentBody(mql.matches)
-    localStorage.setItem(storageKey, mql.matches)
-  } else {
-    // source of truth from document.body
-    var isDarkMode = document.body.classList.contains(classNameDark)
-    localStorage.setItem(storageKey, JSON.stringify(isDarkMode))
-  }
 })();
 `
               }}
             />
             <Main />
-
             <NextScript />
           </body>
         </Html>
