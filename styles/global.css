@@ -132,3 +132,18 @@ footer {
 .notion-collection-card {
   cursor: pointer;
 }
+
+.notion-table-view-header-cell svg,
+.notion-table-view-header-cell-inner svg,
+.notion-collection-view-type-icon svg,
+.notion-collection-view-property-icon svg,
+.notion-collection-view-tabs-content-item svg {
+  fill: #000000 !important;
+  color: #000000 !important;
+  opacity: 1 !important;
+}
+
+.notion-collection-view-type-icon,
+.notion-collection-view-property-icon {
+  opacity: 1 !important;
+}
