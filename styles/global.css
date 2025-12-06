@@ -107,6 +107,7 @@ footer {
   display: none !important;
 }
 
+/* Wymuszamy czarny kolor tekstu wszędzie */
 .notion-table-cell-text,
 .notion-collection-card-body,
 .notion-table-view-header-cell-inner,
@@ -170,74 +171,4 @@ footer {
   padding-left: 8px !important;
   display: flex;
   align-items: center;
-}
-
-.notion-collection-page-properties {
-  display: flex !important;
-  flex-direction: column !important;
-  width: 100% !important;
-  margin-top: 20px !important;
-  margin-bottom: 20px !important;
-  border-top: 1px solid #000000 !important;
-}
-
-.notion-collection-page-properties .notion-property {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: flex-start !important;
-  justify-content: flex-start !important;
-  width: 100% !important;
-  padding: 10px 0 !important;
-  border-bottom: 1px solid rgba(0,0,0,0.05) !important;
-  margin: 0 !important;
-}
-
-.notion-collection-page-properties .notion-property-name {
-  display: flex !important;
-  flex-shrink: 0 !important;
-  width: 200px !important;
-  white-space: normal !important;
-  align-items: center !important;
-  color: #000000 !important;
-  font-size: 14px !important;
-  font-weight: 500 !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-.notion-collection-page-properties .notion-property-name .notion-icon {
-  margin-right: 8px !important;
-  width: 16px !important;
-  height: 16px !important;
-  fill: #000000 !important;
-  opacity: 1 !important;
-}
-
-.notion-collection-page-properties .notion-property-value {
-  display: block !important;
-  flex-grow: 1 !important;
-  padding-left: 0 !important;
-  font-size: 14px !important;
-  color: #000000 !important;
-  white-space: pre-wrap !important;
-  word-break: break-word !important;
-  line-height: 1.6 !important;
-}
-
-.notion-collection-page-properties .notion-property-value span,
-.notion-collection-page-properties .notion-property-value a {
-  color: #000000 !important;
-  white-space: pre-wrap !important;
-}
-
-@media (max-width: 700px) {
-  .notion-collection-page-properties .notion-property {
-    flex-direction: column !important;
-  }
-  
-  .notion-collection-page-properties .notion-property-name {
-    width: 100% !important;
-    margin-bottom: 8px !important;
-    font-size: 12px !important;
-  }
 }
