@@ -5,7 +5,6 @@ if (!rawSiteConfig) {
   throw new Error(`Config error: invalid site.config.ts`)
 }
 
-// allow environment variables to override site.config.ts
 let siteConfigOverrides: SiteConfig | undefined
 
 try {
