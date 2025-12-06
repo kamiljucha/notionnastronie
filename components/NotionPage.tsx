@@ -12,7 +12,6 @@ import {
   NotionRenderer,
   useNotionContext
 } from 'react-notion-x'
-import { EmbeddedTweet, TweetNotFound, TweetSkeleton } from 'react-tweet'
 import { useSearchParam } from 'react-use'
 
 import type * as types from '@/lib/types'
@@ -20,7 +19,6 @@ import * as config from '@/lib/config'
 import { mapImageUrl } from '@/lib/map-image-url'
 import { getCanonicalPageUrl, mapPageUrl } from '@/lib/map-page-url'
 import { searchNotion } from '@/lib/search-notion'
-import { useDarkMode } from '@/lib/use-dark-mode'
 
 import { Footer } from './Footer'
 import { Loading } from './Loading'
@@ -30,7 +28,6 @@ import { PageAside } from './PageAside'
 import { PageHead } from './PageHead'
 import styles from './styles.module.css'
 
-// Dynamic imports (bez zmian)
 const Code = dynamic(() =>
   import('react-notion-x/build/third-party/code').then(async (m) => {
     await Promise.allSettled([
@@ -91,17 +88,6 @@ const Modal = dynamic(
   { ssr: false }
 )
 
-function Tweet({ id }: { id: string }) {
-  const { recordMap } = useNotionContext()
-  const tweet = (recordMap as types.ExtendedTweetRecordMap)?.tweets?.[id]
-  return (
-    <React.Suspense fallback={<TweetSkeleton />}>
-      {tweet ? <EmbeddedTweet tweet={tweet} /> : <TweetNotFound />}
-    </React.Suspense>
-  )
-}
-
-// Property renderers (bez zmian)
 const propertyLastEditedTimeValue = ({ block, pageHeader }: any, defaultFn: () => React.ReactNode) => {
   if (pageHeader && block?.last_edited_time) {
     return `Last updated ${formatDate(block?.last_edited_time, { month: 'long' })}`
@@ -133,13 +119,9 @@ export function NotionPage({
   const router = useRouter()
   const lite = useSearchParam('lite')
   
-  // ZMIENNE POMOCNICZE
   const isLiteMode = lite === 'true'
-  const { isDarkMode } = useDarkMode()
   const isRootPage = site.rootNotionPageId === pageId
 
-  // --- TU JEST KLUCZOWA ZMIANA ---
-  // Definiujemy komponenty, w tym Header, który teraz zawiera Twój łososiowy pasek
   const components = React.useMemo<Partial<NotionComponents>>(
     () => ({
       nextLegacyImage: Image,
@@ -149,14 +131,11 @@ export function NotionPage({
       Equation,
       Pdf,
       Modal,
-      Tweet,
-      // Modyfikujemy Header, aby zawierał menu ORAZ pasek Hero pod nim
       Header: (props) => (
         <>
             <NotionPageHeader {...props} />
             {isRootPage && !isLiteMode && (
                 <div className="hero-section">
-                    {/* Jeśli nie masz logo, zakomentuj linię poniżej */}
                     <img src="/favicon-192x192.png" alt="Logo" className="hero-logo" /> 
                     <h1 className="hero-title">Źródło Twojej przewagi na rynku</h1>
                 </div>
@@ -167,7 +146,7 @@ export function NotionPage({
       propertyTextValue,
       propertyDateValue
     }),
-    [isRootPage, isLiteMode] // Dodaliśmy zależności, aby pasek się odświeżał
+    [isRootPage, isLiteMode]
   )
 
   const siteMapPageUrl = React.useMemo(() => {
@@ -180,7 +159,7 @@ export function NotionPage({
   const keys = Object.keys(recordMap?.block || {})
   const block = recordMap?.block?.[keys[0]!]?.value
   const isBlogPost = block?.type === 'page' && block?.parent_table === 'collection'
-   
+    
   const showTableOfContents = !!isBlogPost
   const minTableOfContentsItems = 3
 
@@ -219,14 +198,12 @@ export function NotionPage({
 
       {isLiteMode && <BodyClassName className='notion-lite' />}
       
-      {/* USUNĘLIŚMY STĄD SEKCJĘ HERO - PRZENIEŚLIŚMY JĄ WYŻEJ DO COMPONENTS */}
-
       <NotionRenderer
         bodyClassName={cs(
           styles.notion,
           pageId === site.rootNotionPageId && 'index-page'
         )}
-        darkMode={isDarkMode}
+        darkMode={false}
         components={components}
         recordMap={recordMap}
         rootPageId={site.rootNotionPageId}
