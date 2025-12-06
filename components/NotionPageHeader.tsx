@@ -20,8 +20,6 @@ export function NotionPageHeader({
   return (
     <header className='notion-header'>
       <div className='notion-nav-header'>
-        {/* Breadcrumbs są potrzebne do zachowania struktury, 
-            nawet jeśli ukrywamy je CSS-em */}
         <Breadcrumbs block={block} rootOnly={true} />
 
         <div className='notion-nav-header-rhs breadcrumbs'>
@@ -54,8 +52,6 @@ export function NotionPageHeader({
               }
             })
             .filter(Boolean)}
-            
-          {/* USUNIĘTO PRZYCISK ZMIANY TRYBU (ToggleThemeButton) */}
         </div>
       </div>
     </header>
