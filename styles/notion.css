@@ -186,10 +186,7 @@
   margin-right: 8px !important;
 }
 .notion-collection-row-value {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  align-items: flex-start !important;
-  gap: 12px !important;
+  display: block !important;
   padding: 0 !important;
   min-height: 23px;
   color: #000000 !important;
@@ -197,21 +194,21 @@
   width: 100% !important;
   min-width: 0 !important;
   white-space: pre-wrap !important;
-  word-break: normal !important; /* NAPRAWIONY: Wymuszenie normalnego łamania słów, nie liter */
+  word-break: normal !important;
   overflow-wrap: break-word !important;
   line-height: 1.6;
 }
 .notion-property-multi_select-item,
 .notion-property-select-item {
   display: inline-flex !important;
-  margin: 0 !important;
+  margin: 0 10px 10px 0 !important;
   white-space: nowrap !important;
 }
 .notion-collection-row-property .notion-property {
   display: inline !important;
   color: #000000 !important;
   white-space: pre-wrap !important;
-  word-break: normal !important; /* NAPRAWIONY */
+  word-break: normal !important;
   overflow-wrap: break-word !important;
 }
 .notion-collection-item-properties span,
@@ -220,7 +217,7 @@
   display: inline !important;
   width: auto !important;
   max-width: 100% !important;
-  word-break: normal !important; /* NAPRAWIONY */
+  word-break: normal !important;
   overflow-wrap: break-word !important;
 }
 @media (max-width: 700px) {
