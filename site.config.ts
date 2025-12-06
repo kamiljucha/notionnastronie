@@ -6,7 +6,7 @@ export default siteConfig({
   rootNotionSpaceId: null,
 
   name: 'Baza wiedzy Gildii trenerów',
-  domain: 'https://kamiljucha.pl/',
+  domain: 'kurs.kamiljucha.pl',
   author: 'Kamil Jucha',
 
   defaultPageIcon: null,
