@@ -1,9 +1,10 @@
+import * as React from 'react'
 import { type Block, type ExtendedRecordMap } from 'notion-types'
+import { getPageTableOfContents } from 'notion-utils'
+import { TableOfContents } from 'react-notion-x'
 
-import { getPageTweet } from '@/lib/get-page-tweet'
-
-import { PageActions } from './PageActions'
 import { PageSocial } from './PageSocial'
+import styles from './styles.module.css'
 
 export function PageAside({
   block,
@@ -19,12 +20,17 @@ export function PageAside({
   }
 
   if (isBlogPost) {
-    const tweet = getPageTweet(block, recordMap)
-    if (!tweet) {
-      return null
+    const toc = getPageTableOfContents(block, recordMap)
+    
+    if (!toc || toc.length < 2) {
+      return <PageSocial />
     }
 
-    return <PageActions tweet={tweet} />
+    return (
+      <div className={styles.pageAside}>
+        <TableOfContents block={block} recordMap={recordMap} />
+      </div>
+    )
   }
 
   return <PageSocial />
