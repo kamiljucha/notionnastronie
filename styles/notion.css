@@ -154,7 +154,7 @@
 }
 .notion-collection-row {
   display: grid !important;
-  grid-template-columns: 200px 1fr !important;
+  grid-template-columns: 220px 1fr !important;
   align-items: start !important;
   gap: 16px !important;
   width: 100% !important;
@@ -209,6 +209,18 @@
 .notion-collection-row-property .notion-property {
   display: inline !important;
   color: #000000 !important;
+  white-space: pre-wrap !important;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+}
+.notion-collection-item-properties span,
+.notion-property-item span {
+  white-space: pre-wrap !important;
+  display: inline !important;
+  width: auto !important;
+  max-width: 100% !important;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
 }
 @media (max-width: 700px) {
   .notion-collection-row {
