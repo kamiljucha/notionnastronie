@@ -109,9 +109,19 @@ footer {
 
 .notion-table-cell-text,
 .notion-collection-card-body,
-.notion-table-view-header-cell-inner {
+.notion-table-view-header-cell-inner,
+.notion-property-text,
+.notion-simple-table-cell {
   color: #000000 !important;
   fill: #000000 !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+}
+
+.notion-table-cell-text span,
+.notion-property-text span {
+  color: #000000 !important;
+  opacity: 1 !important;
 }
 
 .notion-page-icon-inline,
@@ -146,4 +156,18 @@ footer {
 .notion-collection-view-type-icon,
 .notion-collection-view-property-icon {
   opacity: 1 !important;
+}
+
+.notion-collection-view-type-icon {
+  display: none !important;
+}
+
+.notion-collection-view-tabs-content-item .notion-icon {
+  display: none !important;
+}
+
+.notion-collection-view-tabs-content-item {
+  padding-left: 8px !important;
+  display: flex;
+  align-items: center;
 }
