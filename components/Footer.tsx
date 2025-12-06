@@ -5,12 +5,12 @@ import styles from './styles.module.css'
 export const FooterImpl: React.FC = () => {
   return (
     <footer className={styles.footer}>
-      {/* Tu jest Twój napis Copyright */}
+      {}
       <div className={styles.copyright}>
         Copyright 2025 Kamil Jucha
       </div>
 
-      {/* Tu jest tylko ikonka Instagrama */}
+      {}
       <div className={styles.social}>
         <a
           className={styles.socialLink}
