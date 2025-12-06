@@ -103,10 +103,12 @@ footer {
   color: #000000 !important; 
 }
 
+/* Ukrycie tytułu bazy danych na górze */
 .notion-collection-header-title {
   display: none !important;
 }
 
+/* --- OGÓLNE KOLORY TEKSTU I IKON --- */
 
 .notion-table-cell-text,
 .notion-collection-card-body,
@@ -145,6 +147,7 @@ footer {
   cursor: pointer;
 }
 
+/* Kolorowanie ikon w tabelach */
 .notion-table-view-header-cell svg,
 .notion-table-view-header-cell-inner svg,
 .notion-collection-view-type-icon svg,
@@ -160,6 +163,7 @@ footer {
   opacity: 1 !important;
 }
 
+/* Ukrycie domyślnej ikony widoku (np. tabeli) */
 .notion-collection-view-type-icon {
   display: none !important;
 }
@@ -174,6 +178,9 @@ footer {
   align-items: center;
 }
 
+/* --- FIX: PROPERTIES (WŁAŚCIWOŚCI) - UKŁAD TABELI --- */
+
+/* 1. Kontener właściwości - wymuszenie pionowej kolumny */
 .notion-collection-page-properties {
   display: flex !important;
   flex-direction: column !important;
@@ -181,30 +188,33 @@ footer {
   max-width: 100% !important;
   margin-top: 20px !important;
   margin-bottom: 20px !important;
-  border-top: 1px solid rgba(0,0,0,0.05); 
+  border-top: 1px solid rgba(0,0,0,0.05); /* Opcjonalna linia oddzielająca od tytułu */
 }
 
+/* 2. Pojedynczy wiersz właściwości - UKŁAD GRID (Lewa: Nazwa, Prawa: Wartość) */
 .notion-collection-page-properties .notion-property {
   display: grid !important;
+  /* Pierwsza kolumna (nazwa) ma 160px, druga (wartość) zajmuje resztę */
   grid-template-columns: 180px 1fr !important; 
-  align-items: start !important; 
+  align-items: start !important; /* Wyrównanie do góry */
   padding: 8px 0 !important;
   border-bottom: 1px solid rgba(0,0,0,0.05);
   width: 100% !important;
   margin: 0 !important;
 }
 
+/* 3. Stylizacja NAZWY właściwości (lewa strona) */
 .notion-collection-page-properties .notion-property-name {
   display: flex !important;
   align-items: center !important;
-  color: #787774 !important; 
+  color: #787774 !important; /* Szary, jak w Notion */
   font-size: 14px !important;
   font-weight: 500 !important;
   width: 100% !important;
   min-width: 100px !important;
 }
 
-
+/* Ikona przy nazwie właściwości */
 .notion-collection-page-properties .notion-property-name .notion-icon {
   margin-right: 8px !important;
   width: 16px !important;
@@ -213,24 +223,28 @@ footer {
   opacity: 1 !important;
 }
 
+/* 4. Stylizacja WARTOŚCI właściwości (prawa strona) */
 .notion-collection-page-properties .notion-property-value {
-  display: block !important; 
+  display: block !important; /* Ważne: block, żeby tekst się zawijał */
   width: 100% !important;
-  padding-left: 10px !important; 
+  padding-left: 10px !important; /* Odstęp od nazwy */
   font-size: 14px !important;
   color: #000000 !important;
-  white-space: pre-wrap !important; /
-  word-break: break-word !important; 
+  white-space: pre-wrap !important; /* Zachowuje entery w długich tekstach */
+  word-break: break-word !important; /* Zapobiega wychodzeniu linków poza ekran */
 }
 
+/* Jeśli wartość jest pusta lub jest linkiem */
 .notion-collection-page-properties .notion-property-value span,
 .notion-collection-page-properties .notion-property-value a {
   color: #000000 !important;
 }
 
+/* --- RESPANSYWNOŚĆ (TELEFONY) --- */
 @media (max-width: 700px) {
+  /* Na małych ekranach zmieniamy układ na pionowy: Nazwa NAD Wartością */
   .notion-collection-page-properties .notion-property {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr !important; /* Tylko jedna kolumna */
     gap: 4px !important;
   }
 
