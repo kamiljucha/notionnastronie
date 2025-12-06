@@ -178,7 +178,7 @@ footer {
   width: 100% !important;
   margin-top: 20px !important;
   margin-bottom: 20px !important;
-  border-top: 1px solid rgba(0,0,0,0.05) !important;
+  border-top: 1px solid #000000 !important;
 }
 
 .notion-collection-page-properties .notion-property {
@@ -195,10 +195,12 @@ footer {
 .notion-collection-page-properties .notion-property-name {
   display: flex !important;
   flex-shrink: 0 !important;
-  width: 220px !important;
+  width: 200px !important;
+  white-space: normal !important;
   align-items: center !important;
-  color: #787774 !important;
+  color: #000000 !important;
   font-size: 14px !important;
+  font-weight: 500 !important;
   opacity: 1 !important;
   visibility: visible !important;
 }
@@ -207,7 +209,8 @@ footer {
   margin-right: 8px !important;
   width: 16px !important;
   height: 16px !important;
-  fill: #787774 !important;
+  fill: #000000 !important;
+  opacity: 1 !important;
 }
 
 .notion-collection-page-properties .notion-property-value {
@@ -218,11 +221,13 @@ footer {
   color: #000000 !important;
   white-space: pre-wrap !important;
   word-break: break-word !important;
+  line-height: 1.6 !important;
 }
 
 .notion-collection-page-properties .notion-property-value span,
 .notion-collection-page-properties .notion-property-value a {
   color: #000000 !important;
+  white-space: pre-wrap !important;
 }
 
 @media (max-width: 700px) {
@@ -232,7 +237,7 @@ footer {
   
   .notion-collection-page-properties .notion-property-name {
     width: 100% !important;
-    margin-bottom: 4px !important;
+    margin-bottom: 8px !important;
     font-size: 12px !important;
   }
 }
