@@ -1,38 +1,10 @@
 import type * as types from 'notion-types'
-import { IoMoonSharp } from '@react-icons/all-files/io5/IoMoonSharp'
-import { IoSunnyOutline } from '@react-icons/all-files/io5/IoSunnyOutline'
 import cs from 'classnames'
 import * as React from 'react'
 import { Breadcrumbs, Header, useNotionContext } from 'react-notion-x'
 
 import { navigationLinks, navigationStyle } from '@/lib/config'
-import { useDarkMode } from '@/lib/use-dark-mode'
-
 import styles from './styles.module.css'
-
-function ToggleThemeButton() {
-  const [hasMounted, setHasMounted] = React.useState(false)
-  const { isDarkMode, toggleDarkMode } = useDarkMode()
-
-  React.useEffect(() => {
-    setHasMounted(true)
-  }, [])
-
-  const onToggleTheme = React.useCallback(() => {
-    toggleDarkMode()
-  }, [toggleDarkMode])
-
-  return (
-    <div
-      className={cs('breadcrumb', 'button', !hasMounted && styles.hidden)}
-      onClick={onToggleTheme}
-      style={{ cursor: 'pointer', fontSize: '1.5rem', padding: '10px' }} 
-      title="Zmień tryb jasny/ciemny"
-    >
-      {hasMounted && isDarkMode ? <IoMoonSharp /> : <IoSunnyOutline />}
-    </div>
-  )
-}
 
 export function NotionPageHeader({
   block
@@ -48,7 +20,8 @@ export function NotionPageHeader({
   return (
     <header className='notion-header'>
       <div className='notion-nav-header'>
-        {/* Breadcrumbs wyświetlają tytuł - w CSS go ukryliśmy, ale struktura musi być */}
+        {/* Breadcrumbs są potrzebne do zachowania struktury, 
+            nawet jeśli ukrywamy je CSS-em */}
         <Breadcrumbs block={block} rootOnly={true} />
 
         <div className='notion-nav-header-rhs breadcrumbs'>
@@ -81,9 +54,8 @@ export function NotionPageHeader({
               }
             })
             .filter(Boolean)}
-
-          {/* TUTAJ JEST PRZYCISK ZMIANY TRYBU */}
-          <ToggleThemeButton />
+            
+          {/* USUNIĘTO PRZYCISK ZMIANY TRYBU (ToggleThemeButton) */}
         </div>
       </div>
     </header>
