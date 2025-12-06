@@ -143,6 +143,8 @@
   color: inherit !important;
   border-bottom: none !important;
 }
+
+/* --- SEKCJA NAPRAWIAJĄCA PROPERTIES --- */
 .notion-collection-page-properties {
   display: flex !important;
   flex-direction: column !important;
@@ -151,46 +153,53 @@
   border-bottom: 1px solid #000000 !important;
   padding-top: 10px;
   margin-top: 20px;
+  height: auto !important;
 }
 .notion-collection-row {
   display: flex !important;
   flex-direction: row !important;
-  align-items: flex-start !important;
+  align-items: flex-start !important; /* Wszystko do góry */
   width: 100% !important;
   padding: 12px 0 !important;
   border-bottom: 1px solid #000000 !important;
   height: auto !important;
   min-height: min-content !important;
-  overflow: visible !important;
+  overflow: visible !important; /* Kluczowe dla długich tekstów */
+  position: relative !important;
 }
 .notion-collection-page-properties .notion-collection-row:last-child {
   border-bottom: none !important;
 }
+/* LEWA KOLUMNA (NAZWA) */
 .notion-collection-page-properties .notion-collection-column-title {
   display: flex !important;
-  align-items: center;
+  align-items: flex-start !important; /* Wyrównanie do góry wewnątrz komórki */
   margin-right: 16px !important;
+  padding-top: 4px !important; /* Optyczne wyrównanie z tekstem po prawej */
   font-size: 14px;
   line-height: 1.6;
   opacity: 1 !important;
   color: #000000 !important;
   min-width: 180px !important;
   width: 180px !important;
-  flex-shrink: 0 !important;
+  flex-shrink: 0 !important; /* Nie pozwalaj zwężać nazwy */
   white-space: normal !important;
+  height: auto !important;
 }
 .notion-collection-page-properties .notion-collection-column-title svg,
 .notion-collection-page-properties .notion-collection-column-title .notion-icon {
   fill: #000000 !important;
   opacity: 1 !important;
   color: #000000 !important;
+  margin-top: 2px !important; /* Drobna korekta ikony */
 }
+/* PRAWA KOLUMNA (WARTOŚĆ) */
 .notion-collection-row-value {
   display: flex !important;
-  flex-wrap: wrap !important;
+  flex-wrap: wrap !important; /* Tagi spadną niżej */
   align-items: center !important;
-  gap: 8px !important;
-  row-gap: 8px !important;
+  gap: 12px !important; /* ZWIĘKSZONY GAP */
+  row-gap: 12px !important; /* ZWIĘKSZONY GAP */
   padding: 0;
   min-height: 23px;
   color: #000000 !important;
@@ -201,11 +210,14 @@
   white-space: pre-wrap !important;
   word-break: break-word !important;
   line-height: 1.6;
+  height: auto !important;
+  overflow: visible !important;
 }
 .notion-property-multi_select-item,
 .notion-property-select-item {
   display: inline-flex !important;
   margin: 0 !important;
+  margin-bottom: 4px !important; /* Dodatkowy margines dolny dla pewności */
   white-space: nowrap !important;
 }
 .notion-collection-row-property .notion-property {
@@ -224,6 +236,8 @@
     width: 100% !important;
   }
 }
+/* --- KONIEC SEKCJI PROPERTIES --- */
+
 .notion-page-cover-wrapper,
 .notion-page-cover-wrapper span,
 .notion-page-cover-wrapper img {
