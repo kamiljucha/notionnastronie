@@ -155,24 +155,26 @@
 .notion-collection-row {
   display: flex !important;
   flex-direction: row !important;
-  align-items: flex-start !important;
+  align-items: flex-start !important; /* Wyrównanie do góry */
   flex-wrap: nowrap !important;
   width: 100% !important;
   padding: 12px 0 !important;
   border-bottom: 1px solid #000000 !important;
-  height: auto !important;
+  height: auto !important; /* Automatyczna wysokość */
   min-height: min-content !important;
   overflow: visible !important;
+  box-sizing: border-box !important;
 }
 .notion-collection-page-properties .notion-collection-row:last-child {
   border-bottom: none !important;
 }
 .notion-collection-page-properties .notion-collection-column-title {
   display: flex !important;
-  align-items: flex-start !important;
+  align-items: flex-start !important; /* Etykieta też do góry */
   margin-right: 16px !important;
   font-size: 14px;
   line-height: 1.6;
+  padding-top: 2px !important; /* Drobna korekta, żeby tekst równał się z wartością */
   opacity: 1 !important;
   color: #000000 !important;
   min-width: 180px !important;
@@ -185,14 +187,14 @@
   fill: #000000 !important;
   opacity: 1 !important;
   color: #000000 !important;
-  margin-top: 3px !important;
+  margin-top: 2px !important;
 }
 .notion-collection-row-value {
   display: flex !important;
-  flex-wrap: wrap !important;
-  align-items: flex-start !important;
-  gap: 8px !important;
-  row-gap: 8px !important;
+  flex-wrap: wrap !important; /* Pozwala elementom zawijać się w dół */
+  align-items: flex-start !important; /* Elementy wewnątrz też do góry */
+  gap: 10px !important; /* Odstęp (gap) między elementami flex (multiselect) */
+  row-gap: 10px !important;
   padding: 0;
   min-height: 23px;
   color: #000000 !important;
@@ -207,9 +209,14 @@
 .notion-property-multi_select-item,
 .notion-property-select-item {
   display: inline-flex !important;
-  margin: 0 !important;
+  margin: 0 8px 8px 0 !important; /* Marginesy dla pewności (gap + margin) */
   white-space: nowrap !important;
 }
+/* Usuwamy margines z ostatniego elementu, jeśli gap działa, ale zostawiamy dla bezpieczeństwa */
+.notion-property-multi_select-item:last-child {
+    margin-right: 0 !important;
+}
+
 .notion-collection-row-property .notion-property {
   display: inline !important;
   color: #000000 !important;
