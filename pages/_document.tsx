@@ -16,11 +16,11 @@ export default class MyDocument extends Document {
             />
             <link rel='manifest' href='/manifest.json' />
 
-            {/* --- EASY TOOLS PAYWALL START --- */}
-            {/* Główny skrypt ładujący */}
+            {}
+            {}
             <script src="https://cart.easy.tools/login.js?type=block&id=82493ac1-fa44-4b4e-9b5d-a258781c9f4f"></script>
 
-            {/* Logika przekierowania (zabezpieczona dla Next.js) */}
+            {}
             <script
               dangerouslySetInnerHTML={{
                 __html: `
@@ -28,12 +28,12 @@ export default class MyDocument extends Document {
                 `,
               }}
             />
-            {/* --- EASY TOOLS PAYWALL END --- */}
+            {}
 
           </Head>
 
           <body>
-            {/* Obsługa braku JS dla Paywalla */}
+            {}
             <noscript>
                 <meta http-equiv="refresh" content="0;url=https://cart.easy.tools/r/82493ac1-fa44-4b4e-9b5d-a258781c9f4f" />
             </noscript>
