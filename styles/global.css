@@ -1,18 +1,15 @@
 * {
   box-sizing: border-box;
 }
-
 a {
   color: inherit;
   text-decoration: none;
 }
-
 body,
 html {
   padding: 0;
   margin: 0;
 }
-
 body {
   --notion-font: 'Poppins', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
     'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
@@ -21,7 +18,6 @@ body {
   overflow-x: hidden;
   background-color: #F3EEE8;
 }
-
 :root {
   --bg-color: #F3EEE8;      
   --fg-color: #000000;      
@@ -44,7 +40,6 @@ body {
   
   --font-sans: 'Poppins', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
 }
-
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-color: #F3EEE8 !important;
@@ -53,12 +48,10 @@ body {
     --bg-color-1: #F3EEE8 !important;
   }
 }
-
 [class*='dark-mode'] {
   --bg-color: #F3EEE8 !important;
   --fg-color: #000000 !important;
 }
-
 .notion-header {
   background: #E8E5E0 !important; 
   position: sticky !important;    
@@ -66,14 +59,12 @@ body {
   z-index: 1000;
   border-bottom: 1px solid rgba(0,0,0,0.05); 
 }
-
 .notion-nav-header {
   background: transparent !important;
   box-shadow: none !important;
   max-width: 100% !important;
   padding: 10px 20px;
 }
-
 .hero-section {
   background-color: #FF5856; 
   color: white;
@@ -84,13 +75,11 @@ body {
   align-items: center;
   justify-content: center;
 }
-
 .hero-logo {
   max-width: 200px; 
   height: auto;
   margin-bottom: 20px;
 }
-
 .hero-title {
   font-family: 'Poppins', sans-serif; 
   font-size: 2.5rem;
@@ -98,15 +87,12 @@ body {
   margin: 0;
   line-height: 1.2;
 }
-
 footer {
   color: #000000 !important; 
 }
-
 .notion-collection-header-title {
   display: none !important;
 }
-
 .notion-table-cell-text,
 .notion-collection-card-body,
 .notion-table-view-header-cell-inner,
@@ -117,13 +103,11 @@ footer {
   opacity: 1 !important;
   mix-blend-mode: normal !important;
 }
-
 .notion-table-cell-text span,
 .notion-property-text span {
   color: #000000 !important;
   opacity: 1 !important;
 }
-
 .notion-page-icon-inline,
 .notion-page-icon,
 .notion-collection-page-properties .notion-page-icon {
@@ -132,17 +116,14 @@ footer {
   color: unset !important;
   font-family: "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
 }
-
 .notion-page-icon img,
 .notion-page-icon span {
   filter: none !important;
   opacity: 1 !important;
 }
-
 .notion-collection-card {
   cursor: pointer;
 }
-
 .notion-table-view-header-cell svg,
 .notion-table-view-header-cell-inner svg,
 .notion-collection-view-type-icon svg,
@@ -152,20 +133,16 @@ footer {
   color: #000000 !important;
   opacity: 1 !important;
 }
-
 .notion-collection-view-type-icon,
 .notion-collection-view-property-icon {
   opacity: 1 !important;
 }
-
 .notion-collection-view-type-icon {
   display: none !important;
 }
-
 .notion-collection-view-tabs-content-item .notion-icon {
   display: none !important;
 }
-
 .notion-collection-view-tabs-content-item {
   padding-left: 8px !important;
   display: flex;
