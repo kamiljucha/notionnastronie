@@ -14,13 +14,10 @@ export const getStaticProps: GetStaticProps<PageProps, Params> = async (
   try {
     const props = await resolveNotionPage(domain, rawPageId)
 
-    // USUNIĘTO revalidate, bo gryzie się z output: export
     return { props }
   } catch (err) {
     console.error('page error', domain, rawPageId, err)
 
-    // we don't want to publish the error version of this page, so
-    // let next.js know explicitly that incremental SSG failed
     throw err
   }
 }
@@ -41,7 +38,6 @@ export async function getStaticPaths() {
         pageId
       }
     })),
-    // ZMIANA NA FALSE - wymagane dla output: export
     fallback: false
   }
 
