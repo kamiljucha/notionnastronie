@@ -1,5 +1,5 @@
 {
-  "name": "baza-wiedzy-kamil-jucha",
+  "name": "baza-wiedzy-gildii-trenerow",
   "version": "1.0.0",
   "private": true,
   "description": "Baza wiedzy Gildii Trenerów",
@@ -19,7 +19,6 @@
     "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
-    "@fisch0920/use-dark-mode": "^2.4.0",
     "@keyvhq/core": "^1.6.9",
     "@keyvhq/redis": "^1.6.10",
     "@react-icons/all-files": "^4.1.0",
