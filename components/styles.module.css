@@ -79,7 +79,7 @@
 }
 
 .social a:hover {
-  color: #E1306C; /* Kolor Instagrama */
+  color: #E1306C;
   transition: color 50ms ease-out;
 }
 
