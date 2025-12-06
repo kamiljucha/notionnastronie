@@ -200,12 +200,12 @@
 }
 .notion-property-multi_select-item,
 .notion-property-select-item {
-  display: inline-flex !important;
+  display: inline-block !important;
   margin: 0 10px 10px 0 !important;
   white-space: nowrap !important;
 }
 .notion-collection-row-property .notion-property {
-  display: inline !important;
+  display: block !important;
   color: #000000 !important;
   white-space: pre-wrap !important;
   word-break: normal !important;
