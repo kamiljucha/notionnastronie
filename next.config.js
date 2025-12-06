@@ -4,18 +4,14 @@ import { fileURLToPath } from 'node:url'
 import bundleAnalyzer from '@next/bundle-analyzer'
 
 const withBundleAnalyzer = bundleAnalyzer({
-  // eslint-disable-next-line no-process-env
   enabled: process.env.ANALYZE === 'true'
 })
 
 export default withBundleAnalyzer({
-  // TO JEST KLUCZOWE DLA CLOUDFLARE:
   output: 'export',
 
   staticPageGenerationTimeout: 300,
   
-  // --- SEKCJA NAPRAWCZA ---
-  // Dodane, żeby ignorować błędy stylu i typów przy budowaniu
   eslint: {
     ignoreDuringBuilds: true
   },
@@ -25,7 +21,6 @@ export default withBundleAnalyzer({
   // ------------------------
 
   images: {
-    // TO JEST KLUCZOWE PRZY EXPORCIE:
     unoptimized: true,
     remotePatterns: [
       { protocol: 'https', hostname: 'www.notion.so' },
@@ -41,9 +36,6 @@ export default withBundleAnalyzer({
   },
 
   webpack: (config) => {
-    // Workaround for ensuring that `react` and `react-dom` resolve correctly
-    // when using a locally-linked version of `react-notion-x`.
-    // @see https://github.com/vercel/next.js/issues/50391
     const dirname = path.dirname(fileURLToPath(import.meta.url))
     config.resolve.alias.react = path.resolve(dirname, 'node_modules/react')
     config.resolve.alias['react-dom'] = path.resolve(
