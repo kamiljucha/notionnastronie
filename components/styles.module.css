@@ -43,7 +43,6 @@
   width: 640px;
 }
 
-/* --- STOPKA (FOOTER) --- */
 .footer {
   width: 100%;
   max-width: 1200px;
@@ -51,10 +50,10 @@
   padding: 20px;
 
   display: flex;
-  flex-direction: row;      /* Układ w poziomie */
-  justify-content: center;  /* Wyśrodkowanie całości */
-  align-items: center;      /* Wyrównanie w pionie */
-  gap: 15px;                /* Odstęp między tekstem a ikoną */
+  flex-direction: row;     
+  justify-content: center;  
+  align-items: center;      
+  gap: 15px;                
 }
 
 .copyright {
@@ -71,24 +70,22 @@
 
 .social a {
   cursor: pointer;
-  font-size: 2em; /* Rozmiar ikony */
+  font-size: 2em; 
   display: inline-flex;
   padding: 0;
   margin: 0;
-  color: #000000; /* Domyślny kolor ikony */
+  color: #000000; 
   transition: color 250ms ease-out;
 }
 
-/* Efekt najechania myszką tylko dla Instagrama (lub ogólnie linków w stopce) */
 .social a:hover {
   color: #E1306C; /* Kolor Instagrama */
   transition: color 50ms ease-out;
 }
 
-/* Responsywność na bardzo małe telefony */
 @media only screen and (max-width: 500px) {
   .footer {
-    flex-direction: column; /* Na telefonie jeden pod drugim */
+    flex-direction: column; 
     gap: 10px;
   }
 }
