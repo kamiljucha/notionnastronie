@@ -9,8 +9,7 @@ import * as React from 'react'
 import BodyClassName from 'react-body-classname'
 import {
   type NotionComponents,
-  NotionRenderer,
-  useNotionContext
+  NotionRenderer
 } from 'react-notion-x'
 import { useSearchParam } from 'react-use'
 
