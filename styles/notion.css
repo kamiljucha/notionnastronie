@@ -143,116 +143,89 @@
   color: inherit !important;
   border-bottom: none !important;
 }
-
-/* --- FIX START: Properties Layout & Overwrite Fix --- */
-
 .notion-collection-page-properties {
   display: flex !important;
   flex-direction: column !important;
   width: 100% !important;
-  /* Zmiana na szare linie */
-  border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-top: 1px solid #000000 !important;
+  border-bottom: 1px solid #000000 !important;
   padding-top: 10px;
   margin-top: 20px;
-  height: auto !important;
 }
-
 .notion-collection-row {
   display: flex !important;
   flex-direction: row !important;
-  /* Zmiana na flex-start naprawia problem nakładania przy długich tekstach */
-  align-items: flex-start !important; 
+  align-items: flex-start !important;
+  flex-wrap: nowrap !important;
   width: 100% !important;
   padding: 12px 0 !important;
-  /* Szara linia oddzielająca */
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-bottom: 1px solid #000000 !important;
   height: auto !important;
   min-height: min-content !important;
   overflow: visible !important;
-  flex-wrap: wrap !important;
 }
-
 .notion-collection-page-properties .notion-collection-row:last-child {
   border-bottom: none !important;
 }
-
 .notion-collection-page-properties .notion-collection-column-title {
   display: flex !important;
-  align-items: center;
+  align-items: flex-start !important;
   margin-right: 16px !important;
   font-size: 14px;
   line-height: 1.6;
   opacity: 1 !important;
-  color: rgba(0, 0, 0, 0.6) !important; /* Lekko jaśniejszy kolor etykiety */
+  color: #000000 !important;
   min-width: 180px !important;
   width: 180px !important;
   flex-shrink: 0 !important;
   white-space: normal !important;
 }
-
 .notion-collection-page-properties .notion-collection-column-title svg,
 .notion-collection-page-properties .notion-collection-column-title .notion-icon {
-  fill: rgba(0, 0, 0, 0.6) !important;
+  fill: #000000 !important;
   opacity: 1 !important;
-  color: rgba(0, 0, 0, 0.6) !important;
+  color: #000000 !important;
+  margin-top: 3px !important;
 }
-
 .notion-collection-row-value {
   display: flex !important;
   flex-wrap: wrap !important;
-  align-items: center !important;
-  /* Zwiększony gap dla select/multi-select */
-  gap: 12px !important;
-  row-gap: 12px !important;
+  align-items: flex-start !important;
+  gap: 8px !important;
+  row-gap: 8px !important;
   padding: 0;
   min-height: 23px;
   color: #000000 !important;
   text-align: left;
   flex-grow: 1 !important;
-  width: 100% !important;
+  width: auto !important;
   min-width: 0 !important;
-  white-space: pre-wrap !important; /* Kluczowe dla zawijania tekstu */
-  word-break: break-word !important; /* Kluczowe dla długich słów */
-  line-height: 1.8 !important; /* Większy odstęp między liniami tagów */
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+  line-height: 1.6;
 }
-
 .notion-property-multi_select-item,
 .notion-property-select-item {
   display: inline-flex !important;
   margin: 0 !important;
-  white-space: normal !important; /* Pozwalamy na łamanie wewnątrz tagu jeśli trzeba */
-  padding: 4px 8px !important; /* Większy padding wewnątrz tagów */
-  height: auto !important;
+  white-space: nowrap !important;
 }
-
 .notion-collection-row-property .notion-property {
   display: inline !important;
   color: #000000 !important;
-  width: 100%;
 }
-
 @media (max-width: 700px) {
   .notion-collection-row {
     flex-direction: column !important;
-    align-items: flex-start !important;
   }
   .notion-collection-page-properties .notion-collection-column-title {
     width: 100% !important;
-    margin-bottom: 8px !important;
-    color: rgba(0,0,0,0.5) !important;
-    font-size: 12px !important;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    margin-bottom: 6px !important;
   }
   .notion-collection-row-value {
     width: 100% !important;
-    padding-left: 0 !important;
   }
 }
-
-/* --- FIX END --- */
-
 .notion-page-cover-wrapper,
 .notion-page-cover-wrapper span,
 .notion-page-cover-wrapper img {
