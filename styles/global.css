@@ -19,91 +19,93 @@ body {
     'Droid Sans', 'Helvetica Neue', 'Noto Sans', sans-serif;
   font-family: var(--notion-font);
   overflow-x: hidden;
+  /* TŁO CAŁEJ STRONY (to dolne, beżowe) */
+  background-color: #F3EEE8;
 }
 
-/* --- KONFIGURACJA KOLORÓW (TUTAJ ZMIENIASZ SZARY NA CZARNY) --- */
+/* --- DEFINICJA KOLORÓW (BEZ TRYBU CIEMNEGO) --- */
 :root {
-  /* Tryb jasny (Light Mode) */
-  --bg-color: #ffffff;
-  --fg-color: #000000;
+  /* Główne kolory */
+  --bg-color: #F3EEE8;       /* Twój beżowy kolor tła dla treści */
+  --fg-color: #000000;       /* Czarny tekst */
   --fg-color-0: #000000;
-  --fg-color-1: #333333;
+  --fg-color-1: #111111;
+  
+  /* Kolory specyficzne dla Notion */
+  --notion-red: #ff5c5c;
+  --notion-pink: #ff74a8;
+  --notion-blue: #5da0ff;
+  --notion-purple: #c377e0;
+  --notion-teal: #4cd9d9;
+  --notion-yellow: #ffdc4f;
+  --notion-orange: #ffab4f;
+  --notion-brown: #d9aa8c;
+  --notion-gray: #9e9e9e;
+  
+  /* Ukrycie domyślnego tła Notion, żeby przebijał nasz beż */
+  --bg-color-0: #F3EEE8; 
+  --bg-color-1: #F3EEE8;
+  --bg-color-2: #F3EEE8;
 }
 
-/* Tryb ciemny (Dark Mode) - WYMUSZENIE CZERNI */
+/* --- ZABLOKOWANIE TRYBU CIEMNEGO (Nawet jak system o to prosi) --- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #F3EEE8 !important;
+    --fg-color: #000000 !important;
+    --bg-color-0: #F3EEE8 !important;
+    --bg-color-1: #F3EEE8 !important;
+  }
+}
+
+/* Wymuszenie czerni w trybie dark-mode klasy (jeśli skrypt doda klasę) */
 [class*='dark-mode'] {
-  --bg-color: #000000 !important;      /* Główne tło - idealnie czarne */
-  --bg-color-0: #000000 !important;    /* Tło dodatkowe */
-  --bg-color-1: #121212 !important;    /* Tło bloków - bardzo ciemne */
-  --bg-color-2: #1c1c1c !important;
-  
-  --fg-color: #ffffff !important;      /* Tekst - idealnie biały */
-  --fg-color-0: #ffffff !important;
-  --fg-color-1: #e0e0e0 !important;
-  
-  --notion-red: #ff5c5c !important;
-  --notion-pink: #ff74a8 !important;
-  --notion-blue: #5da0ff !important;
-  --notion-purple: #c377e0 !important;
-  --notion-teal: #4cd9d9 !important;
-  --notion-yellow: #ffdc4f !important;
-  --notion-orange: #ffab4f !important;
-  --notion-brown: #d9aa8c !important;
-  --notion-gray: #9e9e9e !important;
+  --bg-color: #F3EEE8 !important;
+  --fg-color: #000000 !important;
 }
 
-/* --- STYLIZACJA TWEETÓW I ELEMENTÓW --- */
-.static-tweet blockquote {
-  margin: 0;
-  margin-block-start: 0;
-  margin-block-end: 0;
-  margin-inline-start: 0;
-  margin-inline-end: 0;
-}
-
-.static-tweet-emoji {
-  height: 1.2em !important;
-  width: 1.2em !important;
-}
-
-/* --- NAPRAWA PASKA NAGŁÓWKA (HEADER) --- */
-
-/* 1. Odklejenie paska i usunięcie tła (żeby nie było tego ciemniejszego paska) */
+/* --- STYLIZACJA GÓRNEGO PASKA (HEADER) --- */
 .notion-header {
-  position: absolute !important; /* Odkleja od góry przy scrollowaniu */
-  background: transparent !important; /* Usuwa kolor tła */
-  height: auto !important;
-  z-index: 100;
+  background: #E8E5E0 !important; /* Twój kolor szaro-beżowy paska */
+  position: sticky !important;    /* Przyklejony u góry */
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0,0,0,0.05); /* Delikatna linia */
 }
 
 .notion-nav-header {
-  background: transparent !important; /* Usuwa tło wewnętrzne */
-  box-shadow: none !important; /* Usuwa linię oddzielającą */
+  background: transparent !important;
+  box-shadow: none !important;
+  max-width: 100% !important;
+  padding: 10px 20px;
 }
 
-/* 2. Ukrycie TEKSTU nazwy strony w pasku */
-.notion-nav-header .breadcrumbs {
-  display: none !important; /* Ukrywa ścieżkę i tytuł */
+/* --- STYLIZACJA CZERWONEGO BANERA (HERO) --- */
+.hero-section {
+  background-color: #FF5856; /* Twój czerwony */
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-/* 3. Ale musimy POKAZAĆ przyciski po prawej (Theme toggle), które są wewnątrz breadcrumbs */
-/* To jest trik: ukrywamy lewą stronę, a prawą (gdzie jest przycisk) zostawiamy */
-.notion-nav-header-rhs {
-  display: flex !important;
+.hero-logo {
+  max-width: 200px; /* Rozmiar loga na czerwonym tle */
+  height: auto;
+  margin-bottom: 20px;
 }
 
-/* --- PASKI PRZEWIJANIA (SCROLLBAR) --- */
-::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-  background-color: var(--bg-color);
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
 }
 
-::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background-color: #555;
-}
-
-::-webkit-scrollbar-track {
-  background-color: var(--bg-color);
+/* --- STOPKA (FOOTER) --- */
+footer {
+  color: #000000 !important; /* Wymuszony czarny tekst */
 }
