@@ -9,32 +9,15 @@ import { type PageProps, type Params } from '@/lib/types'
 export const getStaticProps: GetStaticProps<PageProps, Params> = async (
   context
 ) => {
-  const rawParam = context.params?.pageId
-
-  const slug = Array.isArray(rawParam)
-    ? rawParam[rawParam.length - 1]
-    : (rawParam as string) || ''
+  const rawPageId = context.params?.pageId as string
 
   try {
-    const siteMap = await getSiteMap()
-
-    let pageId = slug
-
-    if (siteMap?.canonicalPageMap) {
-      const foundId = Object.keys(siteMap.canonicalPageMap).find(
-        (key) => siteMap.canonicalPageMap[key] === slug
-      )
-      
-      if (foundId) {
-        pageId = foundId
-      }
-    }
-
-    const props = await resolveNotionPage(domain, pageId)
+    const props = await resolveNotionPage(domain, rawPageId)
 
     return { props }
   } catch (err) {
-    console.error('page error', domain, slug, err)
+    console.error('page error', domain, rawPageId, err)
+
     throw err
   }
 }
@@ -47,10 +30,19 @@ export async function getStaticPaths() {
     }
   }
 
-  return {
-    paths: [],
+  const siteMap = await getSiteMap()
+
+  const staticPaths = {
+    paths: Object.keys(siteMap.canonicalPageMap).map((pageId) => ({
+      params: {
+        pageId
+      }
+    })),
     fallback: 'blocking'
   }
+
+  console.log(staticPaths.paths)
+  return staticPaths
 }
 
 export default function NotionDomainDynamicPage(props: PageProps) {
