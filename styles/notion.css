@@ -186,7 +186,7 @@
   margin-right: 8px !important;
 }
 .notion-collection-row-value {
-  display: block !important;
+  display: block !important; /* KLUCZ: Wymuszenie zachowania blokowego */
   padding: 0 !important;
   min-height: 23px;
   color: #000000 !important;
@@ -194,18 +194,18 @@
   width: 100% !important;
   min-width: 0 !important;
   white-space: pre-wrap !important;
-  word-break: normal !important;
+  word-break: normal !important; /* KLUCZ: Wymuszenie normalnego łamania słów (nie liter) */
   overflow-wrap: break-word !important;
   line-height: 1.6;
 }
 .notion-property-multi_select-item,
 .notion-property-select-item {
-  display: inline-block !important;
-  margin: 0 10px 10px 0 !important;
+  display: inline-block !important; /* Tagów jako bloków inline */
+  margin: 0 10px 10px 0 !important; /* Odstęp między tagami */
   white-space: nowrap !important;
 }
 .notion-collection-row-property .notion-property {
-  display: block !important;
+  display: block !important; /* Wymuszenie zachowania blokowego dla kontenera tekstu */
   color: #000000 !important;
   white-space: pre-wrap !important;
   word-break: normal !important;
@@ -214,7 +214,7 @@
 .notion-collection-item-properties span,
 .notion-property-item span {
   white-space: pre-wrap !important;
-  display: inline !important;
+  display: inline !important; /* Wewnętrzne spany muszą być inline, by tworzyć normalny tekst */
   width: auto !important;
   max-width: 100% !important;
   word-break: normal !important;
