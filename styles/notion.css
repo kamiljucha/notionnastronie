@@ -126,33 +126,68 @@
   display: block;
   text-align: center;
 }
+
+/* --- POPRAWKI DLA BAZY DANYCH (PROPERTIES) --- */
+
+.notion-collection-page-properties {
+  border-top: 1px solid #000000 !important; /* Czarny pasek na górze */
+  padding-top: 10px;
+  margin-top: 20px;
+}
+
 .notion-collection-row {
-  padding-bottom: 1em;
+  display: flex !important;
+  align-items: flex-start !important; /* Wyrównuje tekst do góry, nie do środka */
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  padding: 8px 0 !important;
 }
 
-
+/* Lewa kolumna: Nazwa właściwości */
 .notion-collection-page-properties .notion-collection-column-title {
-  display: inline-block; 
-  margin-right: 8px;
+  display: flex !important; 
+  align-items: center;
+  margin-right: 16px !important;
   font-size: 14px;
-  opacity: 0.6;
+  
+  /* KLUCZOWE ZMIANY */
+  opacity: 1 !important; /* Koniec z szarością */
+  color: #000000 !important; /* Czarny tekst */
+  
+  min-width: 180px !important; /* Sztywna szerokość, żeby nie ucinało tekstu */
+  width: 180px !important;
+  flex-shrink: 0 !important; /* Nie pozwalaj zmniejszać tej kolumny */
+  white-space: normal !important; /* Pozwól zawijać długie nazwy */
 }
 
-.notion-collection-row-property .notion-property {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  text-align: left; 
+/* Ikona w lewej kolumnie */
+.notion-collection-page-properties .notion-collection-column-title svg,
+.notion-collection-page-properties .notion-collection-column-title .notion-icon {
+    fill: #000000 !important;
+    opacity: 1 !important;
+    color: #000000 !important;
 }
 
+/* Prawa kolumna: Wartość */
 .notion-collection-row-value {
-  display: flex;
-  align-items: center;
+  display: block !important; /* Zmiana z flex na block dla lepszego zawijania */
   padding: 0;
   min-height: 23px;
   color: #000000 !important;
-  text-align: left; 
+  text-align: left;
+  
+  /* KLUCZOWE ZMIANY DLA FORMATOWANIA */
+  flex-grow: 1 !important;
+  white-space: pre-wrap !important; /* Szanuje Twoje Shift+Enter i zawija tekst */
+  word-break: break-word !important; /* Zapobiega wychodzeniu tekstu poza ekran */
 }
+
+/* Upewnienie się, że elementy wewnątrz też są czarne */
+.notion-collection-row-property .notion-property {
+  display: block !important;
+  color: #000000 !important;
+}
+
+/* --- KONIEC POPRAWEK --- */
 
 .notion-page-cover-wrapper,
 .notion-page-cover-wrapper span,
