@@ -99,8 +99,6 @@
 .notion-collection-card-body {
   padding: 10px;
 }
-
-/* only target safari */
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   _::-webkit-full-page-media,
   _:future,
@@ -254,7 +252,6 @@
 
   background-color: none;
 
-  /* light yellow */
   background-image: linear-gradient(
     119deg,
     var(--bg-color),
@@ -266,7 +263,6 @@
 
 .notion-purple_background,
 .notion-pink_background {
-  /* light pink */
   background-image: linear-gradient(
     119deg,
     var(--bg-color),
@@ -278,7 +274,6 @@
 
 .notion-blue_background,
 .notion-gray_background {
-  /* light blue */
   background-image: linear-gradient(
     119deg,
     var(--bg-color),
@@ -290,7 +285,6 @@
 
 .notion-red_background,
 .notion-orange_background {
-  /* light red */
   background-image: linear-gradient(
     119deg,
     var(--bg-color),
@@ -301,7 +295,6 @@
 }
 
 .notion-teal_background {
-  /* light green */
   background-image: linear-gradient(
     119deg,
     var(--bg-color),
@@ -389,4 +382,48 @@
 
 .notion-equation.notion-equation-block{
   align-items: center;
+}
+
+.notion-collection-view-tabs-row .notion-collection-view-tabs-content-item {
+  color: #37352f !important;
+  background: transparent !important;
+  opacity: 0.7;
+}
+
+.notion-collection-view-tabs-row .notion-collection-view-tabs-content-item:hover {
+  background: rgba(55, 53, 47, 0.08) !important;
+  color: #000000 !important;
+  opacity: 1;
+}
+
+.notion-collection-view-tabs-row .notion-collection-view-tabs-content-item-active {
+  border-bottom: 2px solid #000000 !important;
+  color: #000000 !important;
+  opacity: 1;
+}
+
+.notion-collection-view-type-icon svg {
+  fill: #37352f !important;
+  display: block !important;
+  opacity: 1 !important;
+}
+
+.notion-table-view-header-cell {
+  color: #37352f !important;
+  font-weight: 600 !important;
+}
+
+.notion-table-view-header-cell-inner {
+  color: inherit !important;
+}
+
+.notion-collection-view-tabs-row button,
+.notion-collection-view-tabs-content-item {
+  filter: none !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+
+.notion-collection-card-body .notion-property-title {
+    color: #000000 !important;
 }
