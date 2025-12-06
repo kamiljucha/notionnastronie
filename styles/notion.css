@@ -143,24 +143,28 @@
   color: inherit !important;
   border-bottom: none !important;
 }
+
+/* GŁÓWNY KONTENER WŁAŚCIWOŚCI */
 .notion-collection-page-properties {
   display: flex !important;
-  flex-direction: column !important;
+  flex-direction: column !important; /* Układa wiersze jeden pod drugim */
   width: 100% !important;
   border-top: 1px solid #000000 !important;
   border-bottom: 1px solid #000000 !important;
   padding-top: 10px;
   margin-top: 20px;
 }
+
+/* WIERSZ (Label + Value) */
 .notion-collection-row {
   display: flex !important;
   flex-direction: row !important;
   align-items: flex-start !important; /* Wyrównanie do góry */
-  flex-wrap: nowrap !important;
+  flex-wrap: nowrap !important; /* Label i Value zawsze w jednym rzędzie */
   width: 100% !important;
   padding: 12px 0 !important;
   border-bottom: 1px solid #000000 !important;
-  height: auto !important; /* Automatyczna wysokość */
+  height: auto !important;
   min-height: min-content !important;
   overflow: visible !important;
   box-sizing: border-box !important;
@@ -168,59 +172,59 @@
 .notion-collection-page-properties .notion-collection-row:last-child {
   border-bottom: none !important;
 }
+
+/* ETYKIETA (Lewa strona) */
 .notion-collection-page-properties .notion-collection-column-title {
   display: flex !important;
-  align-items: flex-start !important; /* Etykieta też do góry */
+  align-items: center !important; /* Ikona i tekst w jednej linii */
   margin-right: 16px !important;
   font-size: 14px;
   line-height: 1.6;
-  padding-top: 2px !important; /* Drobna korekta, żeby tekst równał się z wartością */
   opacity: 1 !important;
   color: #000000 !important;
   min-width: 180px !important;
   width: 180px !important;
   flex-shrink: 0 !important;
   white-space: normal !important;
+  padding-top: 2px !important; /* Drobna korekta pionowa */
 }
 .notion-collection-page-properties .notion-collection-column-title svg,
 .notion-collection-page-properties .notion-collection-column-title .notion-icon {
   fill: #000000 !important;
   opacity: 1 !important;
   color: #000000 !important;
-  margin-top: 2px !important;
+  margin-right: 6px !important;
 }
+
+/* WARTOŚĆ (Prawa strona) */
 .notion-collection-row-value {
-  display: flex !important;
-  flex-wrap: wrap !important; /* Pozwala elementom zawijać się w dół */
-  align-items: flex-start !important; /* Elementy wewnątrz też do góry */
-  gap: 10px !important; /* Odstęp (gap) między elementami flex (multiselect) */
-  row-gap: 10px !important;
-  padding: 0;
+  display: block !important; /* Zmiana na BLOCK naprawia tekst z nowymi liniami */
+  flex-grow: 1 !important;
+  width: auto !important;
+  min-width: 0 !important; /* Zapobiega wypychaniu przez długie ciągi znaków */
   min-height: 23px;
   color: #000000 !important;
   text-align: left;
-  flex-grow: 1 !important;
-  width: auto !important;
-  min-width: 0 !important;
-  white-space: pre-wrap !important;
-  word-break: break-word !important;
+  white-space: pre-wrap !important; /* Obsługa nowych linii \n */
+  word-break: break-word !important; /* Łamanie długich linków */
   line-height: 1.6;
+  padding: 0;
+  margin: 0;
 }
+
+/* MULTI-SELECT (Tagi) */
 .notion-property-multi_select-item,
 .notion-property-select-item {
-  display: inline-flex !important;
-  margin: 0 8px 8px 0 !important; /* Marginesy dla pewności (gap + margin) */
+  display: inline-flex !important; /* Tagi zachowują się jak słowa w tekście */
+  margin: 0 10px 10px 0 !important; /* Większy GAP (symulowany marginesem) */
   white-space: nowrap !important;
-}
-/* Usuwamy margines z ostatniego elementu, jeśli gap działa, ale zostawiamy dla bezpieczeństwa */
-.notion-property-multi_select-item:last-child {
-    margin-right: 0 !important;
 }
 
 .notion-collection-row-property .notion-property {
   display: inline !important;
   color: #000000 !important;
 }
+
 @media (max-width: 700px) {
   .notion-collection-row {
     flex-direction: column !important;
@@ -233,6 +237,7 @@
     width: 100% !important;
   }
 }
+
 .notion-page-cover-wrapper,
 .notion-page-cover-wrapper span,
 .notion-page-cover-wrapper img {
