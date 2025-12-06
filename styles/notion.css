@@ -187,7 +187,7 @@
 }
 .notion-collection-row-value {
   display: flex !important;
-  flex-wrap: nowrap !important;
+  flex-wrap: wrap !important;
   align-items: center !important;
   gap: 8px !important;
   row-gap: 8px !important;
@@ -196,10 +196,10 @@
   color: #000000 !important;
   text-align: left;
   flex-grow: 1 !important;
-  width: auto !important;
+  width: 100% !important;
   min-width: 0 !important;
-  white-space: nowrap !important;
-  word-break: normal !important;
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
   line-height: 1.6;
 }
 .notion-property-multi_select-item,
@@ -432,8 +432,8 @@
 }
 .notion-collection-item-properties span,
 .notion-property-item span {
-  white-space: nowrap !important;
-  display: inline-block !important;
+  white-space: pre-wrap !important;
+  display: inline !important;
   width: auto !important;
   max-width: 100% !important;
 }
