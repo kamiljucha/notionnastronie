@@ -38,7 +38,7 @@ export async function getStaticPaths() {
         pageId
       }
     })),
-    fallback: false
+    fallback: 'blocking'
   }
 
   console.log(staticPaths.paths)
