@@ -64,7 +64,7 @@ body {
   position: sticky !important;    
   top: 0;
   z-index: 1000;
-  border-bottom: none !important; 
+  border-bottom: 1px solid rgba(0,0,0,0.05); 
 }
 
 .notion-nav-header {
@@ -78,7 +78,7 @@ body {
   background-color: #FF5856; 
   color: white;
   text-align: center;
-  padding: 15px 20px;
+  padding: 30px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -88,7 +88,7 @@ body {
 .hero-logo {
   max-width: 200px; 
   height: auto;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .hero-title {
@@ -107,7 +107,6 @@ footer {
   display: none !important;
 }
 
-/* Wymuszenie czarnego koloru tekstów w tabelach i bazach */
 .notion-table-cell-text,
 .notion-collection-card-body,
 .notion-table-view-header-cell-inner,
@@ -125,7 +124,6 @@ footer {
   opacity: 1 !important;
 }
 
-/* Ikony */
 .notion-page-icon-inline,
 .notion-page-icon,
 .notion-collection-page-properties .notion-page-icon {
@@ -174,127 +172,67 @@ footer {
   align-items: center;
 }
 
-/* --- SEKCJA PROPERTIES NA STRONIE --- */
-
-/* Kontener główny properties */
 .notion-collection-page-properties {
   display: flex !important;
   flex-direction: column !important;
   width: 100% !important;
-  max-width: 900px !important; /* Spójne z --notion-max-width */
-  margin: 20px auto !important;
-  
-  /* LINIE GÓRA I DÓŁ - CZARNE */
-  border-top: 1px solid #000000 !important;
-  border-bottom: 1px solid #000000 !important;
-  
-  padding-top: 8px !important;
-  padding-bottom: 8px !important;
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+  border-top: 1px solid rgba(0,0,0,0.05) !important;
 }
 
-/* Pojedynczy wiersz property */
 .notion-collection-page-properties .notion-property {
   display: flex !important;
   flex-direction: row !important;
-  align-items: flex-start !important; /* Ważne dla długich tekstów */
+  align-items: flex-start !important;
   justify-content: flex-start !important;
   width: 100% !important;
-  padding: 6px 0 !important;
+  padding: 10px 0 !important;
+  border-bottom: 1px solid rgba(0,0,0,0.05) !important;
   margin: 0 !important;
-  
-  /* USUNIĘCIE LINII MIĘDZY WIERSZAMI */
-  border-bottom: none !important;
 }
 
-/* Nazwa property (lewa kolumna: ikona + tekst) */
 .notion-collection-page-properties .notion-property-name {
   display: flex !important;
-  flex-direction: row !important;
+  flex-shrink: 0 !important;
+  width: 220px !important;
   align-items: center !important;
-  flex-shrink: 0 !important;
-  
-  /* Stała szerokość lewej kolumny */
-  width: 240px !important;
-  min-width: 200px !important;
-  
-  color: #000000 !important;
+  color: #787774 !important;
   font-size: 14px !important;
-  font-weight: 500 !important;
-  background-color: transparent !important;
-  padding-right: 10px !important;
-  
-  /* Brak zawijania nazwy */
-  white-space: nowrap !important;
-  
-  border-right: none !important; 
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
-/* IKONA PROPERTY - CZARNA */
 .notion-collection-page-properties .notion-property-name .notion-icon {
-  display: block !important;
-  width: 18px !important;
-  height: 18px !important;
-  margin-right: 10px !important;
-  flex-shrink: 0 !important;
-  
-  fill: #000000 !important;
-  color: #000000 !important;
-  filter: none !important;
-  opacity: 1 !important;
+  margin-right: 8px !important;
+  width: 16px !important;
+  height: 16px !important;
+  fill: #787774 !important;
 }
 
-.notion-collection-page-properties .notion-property-name svg path {
-  fill: #000000 !important;
-}
-
-.notion-collection-page-properties .notion-property-name span {
-  color: #000000 !important;
-  opacity: 1 !important;
-}
-
-/* Wartość property (prawa kolumna) */
 .notion-collection-page-properties .notion-property-value {
-  display: block !important; 
+  display: block !important;
   flex-grow: 1 !important;
-  width: auto !important;
-  min-width: 0 !important;
-  
+  padding-left: 0 !important;
   font-size: 14px !important;
   color: #000000 !important;
-  
-  /* POPRAWNE ZAWIJANIE TEKSTU */
   white-space: pre-wrap !important;
   word-break: break-word !important;
-  overflow-wrap: break-word !important;
-  
-  padding: 0 0 0 10px !important;
-  text-align: left !important;
-  min-height: 24px !important;
-  line-height: 1.6 !important;
 }
 
 .notion-collection-page-properties .notion-property-value span,
 .notion-collection-page-properties .notion-property-value a {
   color: #000000 !important;
-  border-bottom: 1px solid rgba(0,0,0,0.2);
 }
 
 @media (max-width: 700px) {
   .notion-collection-page-properties .notion-property {
     flex-direction: column !important;
-    align-items: flex-start !important;
   }
   
   .notion-collection-page-properties .notion-property-name {
     width: 100% !important;
-    border-right: none !important;
-    border-bottom: none !important; 
     margin-bottom: 4px !important;
-    background-color: transparent !important;
-  }
-
-  .notion-collection-page-properties .notion-property-value {
-    width: 100% !important;
-    padding-left: 0 !important;
+    font-size: 12px !important;
   }
 }
