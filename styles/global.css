@@ -102,3 +102,33 @@ body {
 footer {
   color: #000000 !important; 
 }
+
+.notion-collection-header-title {
+  display: none !important;
+}
+
+.notion-table-cell-text,
+.notion-collection-card-body,
+.notion-table-view-header-cell-inner {
+  color: #000000 !important;
+  fill: #000000 !important;
+}
+
+.notion-page-icon-inline,
+.notion-page-icon,
+.notion-collection-page-properties .notion-page-icon {
+  filter: none !important;
+  opacity: 1 !important;
+  color: unset !important;
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+}
+
+.notion-page-icon img,
+.notion-page-icon span {
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+.notion-collection-card {
+  cursor: pointer;
+}
