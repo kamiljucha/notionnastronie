@@ -132,7 +132,14 @@ export function NotionPage({
 }: types.PageProps) {
   const router = useRouter()
   const lite = useSearchParam('lite')
+  
+  // ZMIENNE POMOCNICZE
+  const isLiteMode = lite === 'true'
+  const { isDarkMode } = useDarkMode()
+  const isRootPage = site.rootNotionPageId === pageId
 
+  // --- TU JEST KLUCZOWA ZMIANA ---
+  // Definiujemy komponenty, w tym Header, który teraz zawiera Twój łososiowy pasek
   const components = React.useMemo<Partial<NotionComponents>>(
     () => ({
       nextLegacyImage: Image,
@@ -143,16 +150,25 @@ export function NotionPage({
       Pdf,
       Modal,
       Tweet,
-      Header: NotionPageHeader,
+      // Modyfikujemy Header, aby zawierał menu ORAZ pasek Hero pod nim
+      Header: (props) => (
+        <>
+            <NotionPageHeader {...props} />
+            {isRootPage && !isLiteMode && (
+                <div className="hero-section">
+                    {/* Jeśli nie masz logo, zakomentuj linię poniżej */}
+                    <img src="/favicon-192x192.png" alt="Logo" className="hero-logo" /> 
+                    <h1 className="hero-title">Źródło Twojej przewagi na rynku</h1>
+                </div>
+            )}
+        </>
+      ),
       propertyLastEditedTimeValue,
       propertyTextValue,
       propertyDateValue
     }),
-    []
+    [isRootPage, isLiteMode] // Dodaliśmy zależności, aby pasek się odświeżał
   )
-
-  const isLiteMode = lite === 'true'
-  const { isDarkMode } = useDarkMode()
 
   const siteMapPageUrl = React.useMemo(() => {
     const params: any = {}
@@ -164,10 +180,7 @@ export function NotionPage({
   const keys = Object.keys(recordMap?.block || {})
   const block = recordMap?.block?.[keys[0]!]?.value
   const isBlogPost = block?.type === 'page' && block?.parent_table === 'collection'
-  
-  // SPRAWDZAMY, CZY TO STRONA GŁÓWNA
-  const isRootPage = site.rootNotionPageId === pageId
-
+   
   const showTableOfContents = !!isBlogPost
   const minTableOfContentsItems = 3
 
@@ -206,18 +219,7 @@ export function NotionPage({
 
       {isLiteMode && <BodyClassName className='notion-lite' />}
       
-      {/* TUTAJ WSTAWISAMY SEKCJE HERO (CZERWONĄ) 
-         Wyświetli się TYLKO na stronie głównej (isRootPage)
-         Upewnij się, że masz plik 'logo.png' (lub inny) w folderze 'public'
-      */}
-      {isRootPage && !isLiteMode && (
-        <div className="hero-section">
-           {/* Tutaj podmień ścieżkę na swoje logo z folderu public */}
-           {/* Jeśli nie masz, zakomentuj linię <img ... /> */}
-           <img src="/favicon-192x192.png" alt="Logo" className="hero-logo" /> 
-           <h1 className="hero-title">Źródło Twojej przewagi na rynku</h1>
-        </div>
-      )}
+      {/* USUNĘLIŚMY STĄD SEKCJĘ HERO - PRZENIEŚLIŚMY JĄ WYŻEJ DO COMPONENTS */}
 
       <NotionRenderer
         bodyClassName={cs(
